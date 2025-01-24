@@ -1,0 +1,23 @@
+import java.util.*;
+public class Question2
+{
+    public class Goldbach {
+        public static void goldbachConjecture(int evenNumber) {
+            if (evenNumber <= 2 || evenNumber % 2 != 0) {
+                System.out.println("Input must be an even number greater than 2.");
+                return;
+            }
+
+            ArrayList<Integer> primes = Question1.Sieve.sieve(evenNumber);
+
+            for (int prime : primes) {
+                int complement = evenNumber - prime;
+                if (primes.contains(complement)) {
+                    System.out.println(evenNumber + " = " + prime + " + " + complement);
+                }
+            }
+
+            System.out.println("No valid prime pairs found.");
+        }
+    }
+}
